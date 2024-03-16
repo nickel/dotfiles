@@ -7,3 +7,8 @@ git clone https://github.com/mattjmorrison/dotfiles.git ~/dotfiles
 cd ~/dotfiles/install-scripts
 bash setup.sh
 ```
+
+## References
+
+* https://github.com/mattjmorrison/dotfiles
+* https://github.com/danguita/dotfiles
