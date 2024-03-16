@@ -1,0 +1,11 @@
+.sync
+.vscode
+.ash_history
+.byebug_history
+.DS_Store
+node_modules/
+*.gem
+.irb_history
+*.aes
+ci.env.decrypted*
+ci.args.decrypted*

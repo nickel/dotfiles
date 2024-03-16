@@ -1,0 +1,22 @@
+[user]
+  name = Juan Gallego IV
+  email = juan@gallegoiv.com
+[alias]
+  up = pull --ff-only --all -p
+  please = push --force-with-lease
+  lg = "!git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+[core]
+  editor = "nvim"
+  excludesfile = ~/dotfiles/config/git/gitignore_global
+[pull]
+  ff = only
+[push]
+  autoSetupRemote = true
+[commit]
+  gpgsign = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  defaultKeyCommand = ssh-add -L
+[init]
+	defaultBranch = main
