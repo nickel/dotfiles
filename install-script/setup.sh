@@ -19,7 +19,7 @@ sudo rm -rf ~/.config/nvim
 #=======================
 if [[ "${OS}" == "Linux" ]]
 then
-  sudo apt-get install build-essential
+  sudo apt-get install -y build-essential
 fi
 
 #==============
@@ -52,8 +52,16 @@ brew update
 # Configure zsh
 #==============
 
+# Make zsh available to be selected
+if grep -q 'zsh' /etc/shells; then
+  echo "zsh is available in /etc/shells"
+else
+  command -v zsh | sudo tee -a /etc/shells
+fi
+
+
 # Set zsh as default shell
-chsh -s /bin/zsh 
+chsh -s $(command -v zsh)
 
 # Install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
