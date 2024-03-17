@@ -1,6 +1,9 @@
-#==============
+OS="$(uname)"
+DOTFILES_FOLDER=$HOME/dotfiles
+
+#=====================
 # Remove old dot flies
-#==============
+#=====================
 sudo rm -rf ~/.vim > /dev/null 2>&1
 sudo rm -rf ~/.vimrc > /dev/null 2>&1
 sudo rm -rf ~/.bashrc > /dev/null 2>&1
@@ -12,23 +15,65 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 
 sudo rm -rf ~/.config/nvim
 
+#=======================
+# Install basic packages
+#=======================
+if [[ "${OS}" == "Linux" ]]
+then
+  sudo apt-get install -y build-essential
+fi
+
 #==============
 # Configure git
 #==============
+if [[ "${OS}" == "Linux" ]]
+then
+  sudo add-apt-repository -y ppa:git-core/ppa
+  sudo apt update && sudo apt install -y git
+fi
 ln -s ~/dotfiles/config/git/gitconfig ~/.gitconfig
+
+
+#==============================
+# Install homebrew and packages
+#==============================
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+if [[ "${OS}" == "Linux" ]]
+then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+brew doctor
+brew update
+brew bundle --file=$DOTFILES_FOLDER/install-script/Brewfile
+
 
 #==============
 # Configure zsh
 #==============
 
+# Make zsh available to be selected
+if grep -q 'zsh' /etc/shells; then
+  echo "zsh is available in /etc/shells"
+else
+  command -v zsh | sudo tee -a /etc/shells
+fi
+
+
 # Set zsh as default shell
-chsh -s /bin/zsh 
+chsh -s $(command -v zsh)
 
 # Install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Link config
 ln -s ~/dotfiles/config/zsh/zshrc ~/.zshrc
+
+if [[ "${OS}" == "Linux" ]]
+then
+  (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> $HOME/.zshrc
+fi
 
 #===============
 # Configure nvim
