@@ -1,6 +1,6 @@
-#==============
+#=====================
 # Remove old dot flies
-#==============
+#=====================
 sudo rm -rf ~/.vim > /dev/null 2>&1
 sudo rm -rf ~/.vimrc > /dev/null 2>&1
 sudo rm -rf ~/.bashrc > /dev/null 2>&1
@@ -17,6 +17,15 @@ sudo rm -rf ~/.config/nvim
 #==============
 ln -s ~/dotfiles/config/git/gitconfig ~/.gitconfig
 
+
+#==============================
+# Install homebrew and packages
+#==============================
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew doctor
+brew update
+
+
 #==============
 # Configure zsh
 #==============
@@ -29,6 +38,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Link config
 ln -s ~/dotfiles/config/zsh/zshrc ~/.zshrc
+
 
 #===============
 # Configure nvim
