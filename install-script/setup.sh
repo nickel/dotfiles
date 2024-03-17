@@ -1,3 +1,5 @@
+OS="$(uname)"
+
 #=====================
 # Remove old dot flies
 #=====================
@@ -15,6 +17,11 @@ sudo rm -rf ~/.config/nvim
 #==============
 # Configure git
 #==============
+if [[ "${OS}" == "Linux" ]]
+then
+  sudo add-apt-repository -y ppa:git-core/ppa
+  sudo apt update && sudo apt install -y git
+fi
 ln -s ~/dotfiles/config/git/gitconfig ~/.gitconfig
 
 

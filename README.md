@@ -1,5 +1,10 @@
 # nickel's dotfiles
 
+Compatible OS:
+
+* Darwin
+* Linux (Debian based)
+
 ## Installation
 
 ```
