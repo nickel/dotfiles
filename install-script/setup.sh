@@ -1,4 +1,5 @@
 OS="$(uname)"
+DOTFILES_FOLDER=$HOME/dotfiles
 
 #=====================
 # Remove old dot flies
@@ -46,6 +47,7 @@ fi
 
 brew doctor
 brew update
+brew bundle --file=$DOTFILES_FOLDER/install-script/Brewfile
 
 
 #==============
