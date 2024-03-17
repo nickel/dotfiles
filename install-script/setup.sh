@@ -14,6 +14,14 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 
 sudo rm -rf ~/.config/nvim
 
+#=======================
+# Install basic packages
+#=======================
+if [[ "${OS}" == "Linux" ]]
+then
+  sudo apt-get install build-essential
+fi
+
 #==============
 # Configure git
 #==============
@@ -28,7 +36,14 @@ ln -s ~/dotfiles/config/git/gitconfig ~/.gitconfig
 #==============================
 # Install homebrew and packages
 #==============================
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+if [[ "${OS}" == "Linux" ]]
+then
+  (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> $HOME/.bashrc
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 brew doctor
 brew update
 
