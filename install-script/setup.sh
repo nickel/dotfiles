@@ -41,7 +41,6 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 
 if [[ "${OS}" == "Linux" ]]
 then
-  (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> $HOME/.bashrc
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
@@ -71,6 +70,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # Link config
 ln -s ~/dotfiles/config/zsh/zshrc ~/.zshrc
 
+if [[ "${OS}" == "Linux" ]]
+then
+  (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> $HOME/.zshrc
+fi
 
 #===============
 # Configure nvim
