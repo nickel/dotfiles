@@ -69,8 +69,7 @@ set timeoutlen=1000 ttimeoutlen=0 " eliminate delays on ESC in vim
 syntax enable
 
 if &t_Co >= 256 || has("gui_running")
-  colorscheme sonokai
-  set guifont=Source\ Code\ Pro:h18
+  colorscheme molokai
   syntax on
 endif
 
