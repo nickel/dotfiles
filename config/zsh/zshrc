@@ -7,3 +7,9 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=C
 export EDITOR="nvim"
+
+# Source Custom Configurations <<1
+for fname in $(find ~/dotfiles/custom-configs -name "*.sh*"); do
+  source $fname
+done
+# >>1
