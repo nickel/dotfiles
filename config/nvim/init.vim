@@ -11,6 +11,8 @@ Plug 'scrooloose/nerdtree'
   nmap ,N :NERDTreeClose<CR>
   nmap ,b :CtrlPBuffer<CR>
 
+Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -21,12 +23,11 @@ Plug 'ctrlpvim/ctrlp.vim'
     \ 'file': '\v\.(exe|so|dll|cache)$',
     \ }
 
+Plug 'bronson/vim-trailing-whitespace'
+
 call plug#end()
 
 set nocompatible " be iMproved, required
-filetype on
-filetype off
-filetype plugin indent on
 
 set smartindent
 set ts=2          " Tabs are 2 spaces
@@ -66,7 +67,13 @@ set noswapfile
 
 set timeoutlen=1000 ttimeoutlen=0 " eliminate delays on ESC in vim
 
+set clipboard=unnamedplus " use system's clipboard
+
 syntax enable
+
+filetype on
+filetype plugin on
+filetype indent on
 
 if &t_Co >= 256 || has("gui_running")
   colorscheme molokai
