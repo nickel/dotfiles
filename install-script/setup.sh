@@ -15,6 +15,8 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 
 sudo rm -rf ~/.config/nvim
 
+mkdir ~/.config
+
 #=======================
 # Install basic packages
 #=======================
@@ -31,7 +33,7 @@ then
   sudo add-apt-repository -y ppa:git-core/ppa
   sudo apt update && sudo apt install -y git
 fi
-ln -s ~/dotfiles/config/git/gitconfig ~/.gitconfig
+ln -s $DOTFILES_FOLDER/config/git/gitconfig $HOME/.gitconfig
 
 
 #==============================
@@ -60,31 +62,26 @@ else
   command -v zsh | sudo tee -a /etc/shells
 fi
 
-
 # Set zsh as default shell
 chsh -s $(command -v zsh)
 
 # Install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# Remove installed zshrc
+rm -f $HOME/.zshrc
+
 # Link config
-ln -s ~/dotfiles/config/zsh/zshrc ~/.zshrc
+ln -s $DOTFILES_FOLDER/config/zsh/zshrc $HOME/.zshrc
 
 if [[ "${OS}" == "Linux" ]]
 then
   (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> $HOME/.zshrc
 fi
 
+echo -e "\\n. $(brew --prefix asdf)/libexec/asdf.sh" >> $HOME/.zshrc
+
 #===============
 # Configure nvim
 #===============
-
-# Install vim-plug
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Link config
-ln -s ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
-
-# Install plugins
-nvim +':PlugInstall' +qa
+ln -s $DOTFILES_FOLDER/config/nvim $HOME/.config/nvim
