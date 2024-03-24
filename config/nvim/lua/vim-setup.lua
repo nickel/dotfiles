@@ -17,3 +17,6 @@ vim.keymap.set("n", "<c-right>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
+
+-- Fix a bug with treesitter and ruby indentation
+vim.cmd("autocmd FileType ruby setlocal indentkeys-=.")
