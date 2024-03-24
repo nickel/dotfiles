@@ -1,2 +1,4 @@
 brew "zsh"
+brew "ripgrep" # telescope vim plugin dependency
 brew "neovim"
+brew "asdf"
