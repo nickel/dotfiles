@@ -9,7 +9,7 @@ Compatible OS:
 
 ```
 git clone https://github.com/nickel/dotfiles.git ~/dotfiles
-cd ~/dotfiles/install-scripts
+cd ~/dotfiles/install-script
 bash setup.sh
 ```
 
