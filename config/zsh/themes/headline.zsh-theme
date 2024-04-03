@@ -113,7 +113,7 @@ HEADLINE_STYLE_BRANCH=$bold$cyan
 HEADLINE_STYLE_STATUS=$bold$magenta
 
 # Info options
-HEADLINE_INFO_MODE=precmd # precmd|prompt (whether info line is in PROMPT or printed by precmd)
+HEADLINE_INFO_MODE=prompt # precmd|prompt (whether info line is in PROMPT or printed by precmd)
   # use "precmd" for window resize to work properly (but Ctrl+L doesn't show info line)
   # use "prompt" for Ctrl+L to clear properly (but window resize eats previous output)
 
@@ -147,20 +147,20 @@ HEADLINE_GIT_CONFLICTS='✘' # consider "%{$red%}✘"
 HEADLINE_GIT_CLEAN='' # consider "✓" or "✔"
 
 # Git status options
-HEADLINE_DO_GIT_STATUS_COUNTS=false # set "true" to show count of each status
-HEADLINE_DO_GIT_STATUS_OMIT_ONE=false # set "true" to omit the status number when it is 1
+HEADLINE_DO_GIT_STATUS_COUNTS=true # set "true" to show count of each status
+HEADLINE_DO_GIT_STATUS_OMIT_ONE=true # set "true" to omit the status number when it is 1
 
 # Prompt
 HEADLINE_PROMPT='%(#.#.%(!.!.$)) ' # consider "%#"
 HEADLINE_RPROMPT=''
 
 # Clock (prepends to RPROMPT)
-HEADLINE_DO_CLOCK=false # whether to show the clock
+HEADLINE_DO_CLOCK=true # whether to show the clock
 HEADLINE_STYLE_CLOCK=$faint
 HEADLINE_CLOCK_FORMAT='%l:%M:%S %p' # consider "%+" for full date (see man strftime)
 
 # Exit code
-HEADLINE_DO_ERR=false # whether to show non-zero exit codes above prompt
+HEADLINE_DO_ERR=true # whether to show non-zero exit codes above prompt
 HEADLINE_DO_ERR_INFO=true # whether to show exit code meaning as well
 HEADLINE_ERR_PREFIX='→ '
 HEADLINE_STYLE_ERR=$italic$faint
