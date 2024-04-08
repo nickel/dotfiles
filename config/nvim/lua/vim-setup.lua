@@ -20,3 +20,6 @@ vim.wo.number = true
 
 -- Fix a bug with treesitter and ruby indentation
 vim.cmd("autocmd FileType ruby setlocal indentkeys-=.")
+
+-- Copy & paste using global clipboard
+vim.cmd("set clipboard=unnamedplus")
