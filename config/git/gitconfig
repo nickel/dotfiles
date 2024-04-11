@@ -5,9 +5,26 @@
   up = pull --ff-only --all -p
   please = push --force-with-lease
   lg = "!git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  llm-staged = "!f() { \
+    git add -p; \
+    if ! git diff --cached --quiet; then \
+        commit_msg=$(git diff --cached | llm -s \"$(cat ~/.config/prompts/commit-system-prompt.txt)\"); \
+        echo \"Commit message:\n$commit_msg\"; \
+        read -p \"Do you want to commit with this message? [y/N] \" confirm; \
+        if [[ $confirm =~ ^[Yy]$ ]]; then \
+            git commit -m \"$commit_msg\"; \
+        else \
+            git reset HEAD .; \
+            echo \"Commit aborted.\"; \
+        fi; \
+    else \
+        echo \"No changes staged for commit. Aborting.\"; \
+    fi; \
+  }; f"
 [core]
   editor = "nvim"
   excludesfile = ~/dotfiles/config/git/gitignore_global
+  hooksPath = ~/dotfiles/config/git/hooks
 [pull]
   ff = only
 [push]

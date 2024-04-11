@@ -14,6 +14,7 @@ sudo rm -rf ~/.zshrc > /dev/null 2>&1
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 
 sudo rm -rf ~/.config/nvim
+sudo rm -rf ~/.config/git/prompts
 
 mkdir ~/.config
 
@@ -34,6 +35,7 @@ then
   sudo apt update && sudo apt install -y git
 fi
 ln -s $DOTFILES_FOLDER/config/git/gitconfig $HOME/.gitconfig
+ln -s $DOTFILES_FOLDER/config/git/prompts $HOME/.config/git/prompts
 
 
 #==============================
