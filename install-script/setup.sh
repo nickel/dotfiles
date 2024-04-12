@@ -35,6 +35,8 @@ then
   sudo apt update && sudo apt install -y git
 fi
 ln -s $DOTFILES_FOLDER/config/git/gitconfig $HOME/.gitconfig
+
+# https://harper.blog/2024/03/11/use-an-llm-to-automagically-generate-meaningful-git-commit-messages/
 ln -s $DOTFILES_FOLDER/config/git/prompts $HOME/.config/git/prompts
 
 
