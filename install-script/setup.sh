@@ -70,13 +70,13 @@ fi
 chsh -s $(command -v zsh)
 
 # Install oh my zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh::g' | sed 's:chsh -s .*$::g')"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Remove installed zshrc
 rm -f $HOME/.zshrc
 
 # Link config
-ln -s $DOTFILES_FOLDER/config/zsh/zshrc $HOME/.zshrc
+cp $DOTFILES_FOLDER/config/zsh/zshrc $HOME/.zshrc
 
 if [[ "${OS}" == "Linux" ]]
 then
