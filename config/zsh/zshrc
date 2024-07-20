@@ -13,5 +13,3 @@ for fname in $(find ~/dotfiles/custom-configs -name "*.sh*"); do
   source $fname
 done
 # >>1
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
