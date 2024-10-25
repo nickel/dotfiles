@@ -1,6 +1,6 @@
 [user]
   name = Juan Gallego IV
-  email = juan@gallegoiv.com
+  email = juan.gallego@jobandtalent.com
 [alias]
   up = pull --ff-only --all -p
   please = push --force-with-lease
@@ -37,3 +37,8 @@
   defaultKeyCommand = ssh-add -L
 [init]
 	defaultBranch = main
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

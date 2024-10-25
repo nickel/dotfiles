@@ -13,3 +13,6 @@ for fname in $(find ~/dotfiles/custom-configs -name "*.sh*"); do
   source $fname
 done
 # >>1
+
+export PATH="$PATH:/Users/nickel/.local/bin:/opt/homebrew/opt/awscli@1/bin"
+if [ -f "/Users/nickel/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/nickel/.config/fabric/fabric-bootstrap.inc"; fi
