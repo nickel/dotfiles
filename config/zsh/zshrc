@@ -16,3 +16,5 @@ done
 
 export PATH="$PATH:/Users/nickel/.local/bin:/opt/homebrew/opt/awscli@1/bin"
 if [ -f "/Users/nickel/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/nickel/.config/fabric/fabric-bootstrap.inc"; fi
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
